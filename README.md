@@ -1,14 +1,68 @@
-# BananaLab
+package session1;
 
-一个 Java 练级的项目仓库，逐渐帮你认识 Java 的方方面面，基本达到可工作水平。
-分四步走。
-1、新建一个自己的package，并拷贝dajiao文件夹的demo类
-2、实现类里边需要你实现的功能
-3、跑 test ，通过之后可以提交。
-4、写一个 MD文件，描述一下你的思路以及注意点。
+public class SessionWatermelon {
 
+	public static void main(String[] args) {
+		// TODO 自动生成的方法存根
+		int arr []= {-5,0,6,4};
+		sell(arr);
+		
+		
+	}
 
-lab1:求sum，从最简单的求sum 算法开始。
-lab2:字符串转 Integer
-lab3:简易的内存分布式文件系统实现
-lab4:大家一起来实现一个页面功能，纯Sting模式，来来来。
+	public static int[] sell(int[] buyNum){
+		
+		if(buyNum==null) 
+			return  new int [0]; 
+		
+		if(buyNum.length ==0)
+			return   new int [0];	
+		
+	
+		int totalBuyNum=0;
+		
+		for(int i=0;i<buyNum.length;i++)
+		{
+			int  currentbuyNum=buyNum [i];
+			int sellNum=0;
+			
+			
+			try
+			{
+				sellNum=sell0(currentbuyNum);
+			
+			}
+				catch (Exception e) 
+			{
+				
+					sellNum=0; //出现负数或者0 相当于没卖出
+			     
+			     	 
+			}
+			
+			totalBuyNum+=sellNum;
+		}
+		
+		System.out.println("Huanyang一共卖了"+totalBuyNum+"个西瓜");
+		
+		
+		return buyNum;
+	}
+	
+	
+	private static int sell0(int buyNum) throws Exception {
+		
+		if(buyNum<0)
+		{
+			throw new  Exception("不卖（卖0）") ;
+		}
+		
+		if(buyNum>50)
+		{
+			return 50;
+		}
+	
+		
+		return buyNum;
+	}
+}
